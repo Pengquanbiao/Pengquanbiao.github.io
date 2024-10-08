@@ -1,0 +1,44 @@
+<!--pages/home/home.wxml-->
+<view class="home">
+  <!-- 顶部导航栏 -->
+  <view class="top-nav">
+    <view class="tips">
+        <text>下午好</text>
+        <text>游客</text>
+    </view>
+    <!-- 搜索框 -->
+    <view class="search">
+      <van-search shape="round" placeholder="请输入商品名称" />
+    </view>
+  </view>
+
+
+
+  <view class="banner">
+    <swiper indicator-dots indicator-active-color="#0C34BA" autoplay>
+      <block wx:for="{{banner}}" wx:key="pid">
+        <swiper-item>
+          <image mode="widthFix" src="{{item.bannerImg}}" mode=""/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+<view class="recommend">
+  <text>热卖推荐</text>
+</view>
+
+<view class="coffee-list">
+  <view class="coffee"
+  wx:for="{{hotList}}"
+  wx:key="pid"
+  bindtap="handleToDetail"
+  data-pid="{{item.pid}}"
+  >
+    <text class="coffee-tag" wx:if="{{item.isHot}}">hot</text>
+    <image src="{{item.smallImg}}" mode="widthFix"/>
+    <view class="zh-name">{{item.name}}</view>
+    <view class="en-name">{{item.enname}}</view>
+    <view class="price">￥{{item.price}}</view>
+  </view>
+</view>

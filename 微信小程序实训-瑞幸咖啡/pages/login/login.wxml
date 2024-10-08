@@ -1,0 +1,30 @@
+<!--pages/login/login.wxml-->
+<!-- 登录效果 -->
+
+<view class="container">
+    <view class="title">欢迎回来!</view>
+    <view class="sub-title">Please login to your accounts</view>
+    <van-cell-group>
+        <van-field label="手机号" model:value="{{phone}}" placeholder="请输入用户名" border="{{ false }}" />
+        <van-field label="密码" model:value="{{password}}" placeholder="密码必须为字母开头" border="{{ false }}" />
+        <text class="forget">忘记密码</text>
+    </van-cell-group>
+    <view class="btns">
+        <van-button class="btn btn--login" size="small" bind:click="onLoginTap" type="primary">登录</van-button>
+        <van-button class="btn btn--register" size="small" type="default" bindtap="showPopup">注册</van-button>
+    </view>
+
+</view>
+
+
+<!-- 注册效果 -->
+
+<van-popup show="{{ show }}" position="bottom" custom-style="height: 40%;" bind:close="onClose">
+    <view class="title" style="padding:20rpx;">注册功能</view>
+    <van-cell-group>
+        <van-field label="手机号" model:value="{{reg_phone}}" placeholder="请输入手机号" border="{{ false }}" />
+        <van-field label="密码" type="password" model:value="{{reg_password}}" placeholder="密码必须为字母开头" border="{{ false }}" />
+        <van-field label="昵称" model:value="{{reg_nickName}}" placeholder="请输入昵称" border="{{ false }}" />
+    </van-cell-group>
+    <van-button class="btn btn--register" bind:click="onRegisterTap" type="primary" size="small"  style="padding:20rpx;">注册</van-button>
+</van-popup>

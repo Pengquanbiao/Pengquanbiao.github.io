@@ -1,0 +1,91 @@
+/* pages/home/home.wxss */
+.home {
+  background-color: #f7f7f7;
+}
+/* flex布局 伸缩布局 */
+.top-nav {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding: 0px 10px;
+  justify-content: space-between;
+  background-color: #ffffff;
+}
+.tips {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.tips>text:nth-child(2) {
+  color: blue;
+  margin-left: 20px;
+}
+.search {
+  width: 68%;
+  color: #dcdcdc;
+}
+
+.banner swiper {
+  height: 240px !important;
+}
+.banner swiper image {
+  width: 100%;
+}
+
+.recommend {
+  margin: 16rpx 0;
+  overflow: auto;
+}
+
+.recommend text {
+  display: inline-block;
+  padding: 16rpx 32rpx;
+  margin: 16rpx 0;
+  border-top-right-radius: 32rpx;
+  color: #fff;
+  background-color: #0037AE;
+}
+
+.coffee-list {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 16rpx;
+  padding: 16rpx;
+  background-color: #F6F6F6;
+}
+
+.coffee-list .coffee {
+  position: relative;
+  padding: 16rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+}
+.coffee-list .coffee .coffee-tag {
+position: absolute;
+top: 16rpx;
+left: 32rpx;
+padding: 8rpx;
+font-size: small;
+color: #fff;
+background-color: #0037AE;
+border-radius: 0px 0px 8px 8px;
+}
+.coffee-list .coffee image {
+  width: 100%;
+  border-radius: 16rpx;
+}
+.zh-name {
+  margin-top: 16rpx;
+  font-size: 32rpx;
+  columns: #595a5b;
+}
+.en-name {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  columns: #8e8e8e;
+}
+.price {
+  margin-top: 16rpx;
+  color: #0037ae;
+  font-size: 32rpx;
+  font-weight: bold;
+}

@@ -1,0 +1,84 @@
+<!--pages/detail/detail.wxml-->
+<view class="header">
+  <image src="{{detail.small_img}}" mode="widthFix"/>
+</view>
+
+
+<view class="detail-content">
+  <view class="detail-title">
+    <text class="detail-name">{{detail.name}}</text>
+    <text class="detail-price">￥{{detail.price}}</text>
+  </view>
+  <view class="detail-enname">{{detail.enname}}</view>
+
+  <view class="rules">
+    <!-- 温度选择 -->
+    <view class="spec" wx:if="{{detail.tem.length}}">
+      <text class="spec_name">{{detail.tem_desc}}</text>
+      <view class="ec-chioce">
+        <!-- en-chioce-item--active -->
+        <block wx:for="{{detail.tem}}" wx:key="*this">
+          <view 
+          class="en-chioce-item {{form.tem === item?'en-chioce-item--active':''}}"bindtap="onTapTemSpec"data-value="{{item}}">{{item}}</view>
+        </block>
+      </view>
+    </view>
+    <!-- 糖度选择 -->
+    <view class="spec" wx:if="{{detail.sugar.length}}">
+      <text class="spec_name">{{detail.sugar_desc}}</text>
+      <view class="ec-chioce">
+        <!-- en-chioce-item--active -->
+        <block wx:for="{{detail.sugar}}" wx:key="*this">
+          <view 
+          class="en-chioce-item {{form.sugar === item?'en-chioce-item--active':''}}"bindtap="onTapSugarSpec"data-value="{{item}}">{{item}}</view> 
+        </block>
+      </view>
+    </view>
+    <view class="ec-line"></view>
+    <!-- 奶油选择 -->
+    <view class="spec" wx:if="{{detail.cream.length}}">
+      <text class="spec_name">{{detail.cream_desc}}</text>
+      <view class="ec-chioce">
+        <!-- en-chioce-item--active -->
+        <block wx:for="{{detail.cream}}" wx:key="*this">
+          <view 
+          class="en-chioce-item {{form.cream === item?'en-chioce-item--active':''}}"bindtap="onTapCreamSpec"data-value="{{item}}">{{item}}</view>
+        </block>
+      </view>
+    </view>
+    <!-- 选择数量 -->
+
+    <view class="num-wrapper">
+      <text>选择数量</text>
+      <view>
+        <van-stepper 
+        class="num-stepper"
+        minus-class="num-stepper_minus"
+        plus-class="num-stepper_plus"
+        theme="round"
+        button-size="40rpx"
+        value="{{ form.count }}" 
+        bind:change="onNumChange"
+         />
+      </view>
+    </view>
+
+    <view class="ec-line"></view>
+    <view class="desc">
+      <view class="desc_title">商品描述</view>
+      <view class="desc_content">
+        {{detail.desc}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="bottom_margin"></view>
+
+<van-goods-action>
+  <van-goods-action-icon icon="cart-o" text="购物袋" info="5" />
+  <van-goods-action-icon icon="like-o" text="收藏" />
+  <van-goods-action-button color="#0037AE" text="加入购物" type="warning" />
+  <van-goods-action-button bind:click='goLogin' plain color="#0037AE" text="立即购买" />
+</van-goods-action>
+
